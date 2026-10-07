@@ -1,8 +1,8 @@
-﻿
+﻿//2.fa
 using cukraszdanyilvantartas;
 
 List<Sutemeny> sutik = new List<Sutemeny>();
-
+//3.fa
 for (int i = 0; i < 4; i++)
 {
     Sutemeny aktualis = new Sutemeny();
@@ -28,7 +28,7 @@ int teljes = 0;
 double arak = 0;
 for (int i = 0; i < listdb; i++) 
 {
-    osszeg += sutik[i].Egysegar * sutik[i].Raktarondb;
+    osszeg = sutik[i].Egysegar * sutik[i].Raktarondb;
     Console.WriteLine($"{sutik[i].Nev}: {sutik[i].Egysegar}Ft / db ({sutik[i].Raktarondb}db) --> Összérték: {osszeg} Ft ");
     teljes += osszeg;
     arak += sutik[i].Egysegar;
@@ -36,6 +36,9 @@ for (int i = 0; i < listdb; i++)
 //4.2fa
 Console.WriteLine($"\nPult teljes készletértéke: {teljes} Ft");
 double atlag = arak/listdb;
-Console.WriteLine($"\nSütemények átlagos egységára: {atlag} Ft");
+Console.WriteLine($"Sütemények átlagos egységára: {atlag:F0} Ft");
 
-
+//4.3
+if (teljes >= 40000) Console.WriteLine("Bőséges kínálat!");
+else if (teljes >= 20000) Console.WriteLine("Átlagos feltöltöttség.");
+else  Console.WriteLine("Alacsony készlet, utántöltés szükséges!");
